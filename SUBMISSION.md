@@ -119,17 +119,29 @@ If time runs short, drop styling polish first. Never drop the duplicate and capa
 
 ### Manual Grounding Evaluation
 
-PASTE_EVALUATION_HERE
+The AI-generated architecture is realistic for a 3-hour prototype because it uses one ASP.NET Core project that also serves the static frontend, so there is no separate deployment or CORS setup. It keeps the scope small with only two tables, four API endpoints, and no login, and it assigns work to each member in timed blocks. However, we found that it stores the student's name, student number and email directly on each Registration row, which repeats the same data and does not meet 3rd Normal Form, so our database design separates this into a Users table. The admin page also has no authentication, which is acceptable for a classroom demo but would need to be fixed before real use.
 
 ## Task 3
 
 ### Prompt Used
 
-## Task 3
+ROLE
+You are a Senior Database Engineer specializing in SQL Server.
 
-### Prompt Used
+CONTEXT
+We are building an Online Campus Event Management System. Students view upcoming events and register for them. Administrators view the attendees of each event.
 
-PASTE_TASK3_PROMPT_HERE
+TASK
+1. Design a 3rd Normal Form (3NF) schema with at least three entities: Users, Events, Registrations.
+2. Output an Entity-Relationship Diagram in Mermaid.js erDiagram code.
+3. Write a production-grade T-SQL DDL script.
+
+CONSTRAINTS
+- Define explicit Foreign Key rules with ON DELETE behavior.
+- Add CHECK constraints (email format, role values, capacity above zero, status values).
+- Add a non-clustered index on every foreign key column.
+- Prevent a user from registering for the same event twice.
+- Do not add tables beyond what the requirements need.
 
 ### AI Output Summary
 
