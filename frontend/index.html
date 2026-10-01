@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Events</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <img class="logo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%231f4e79'/%3E%3Ctext x='24' y='31' font-size='22' text-anchor='middle' fill='white' font-family='Arial'%3ECE%3C/text%3E%3C/svg%3E" alt="Campus Events logo">
+    <div>
+      <h1>Campus Events</h1>
+      <p>Browse upcoming events and reserve your seat.</p>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section aria-labelledby="catalog-heading">
+      <h2 id="catalog-heading">Upcoming Events</h2>
+      <p id="catalog-status" class="status" role="status" aria-live="polite"></p>
+      <ul id="event-list" class="event-list"></ul>
+    </section>
+
+    <section aria-labelledby="register-heading" class="form-section">
+      <h2 id="register-heading">Register for an Event</h2>
+      <form id="registration-form" novalidate>
+        <div class="field">
+          <label for="full-name">Full name</label>
+          <input type="text" id="full-name" name="fullName" aria-label="Full name" autocomplete="name" required>
+          <span class="error" id="name-error" role="alert"></span>
+        </div>
+
+        <div class="field">
+          <label for="email">School email</label>
+          <input type="email" id="email" name="email" aria-label="School email address" placeholder="name@univ.edu.ph" autocomplete="email" required>
+          <span class="error" id="email-error" role="alert"></span>
+        </div>
+
+        <div class="field">
+          <label for="event-select">Event</label>
+          <select id="event-select" name="eventId" aria-label="Select an event" required>
+            <option value="">Choose an event</option>
+          </select>
+          <span class="error" id="event-error" role="alert"></span>
+        </div>
+
+        <button type="submit">Register</button>
+        <p id="form-message" class="message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Campus Event Management System prototype</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
