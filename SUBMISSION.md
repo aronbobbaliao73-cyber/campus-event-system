@@ -121,6 +121,40 @@ If time runs short, drop styling polish first. Never drop the duplicate and capa
 
 The AI-generated architecture is realistic for a 3-hour prototype because it uses one ASP.NET Core project that also serves the static frontend, so there is no separate deployment or CORS setup. It keeps the scope small with only two tables, four API endpoints, and no login, and it assigns work to each member in timed blocks. However, we found that it stores the student's name, student number and email directly on each Registration row, which repeats the same data and does not meet 3rd Normal Form, so our database design separates this into a Users table. The admin page also has no authentication, which is acceptable for a classroom demo but would need to be fixed before real use.
 
+## Task 2
+
+### Prompt Used
+
+ROLE
+You are a Senior Frontend Engineer who builds accessible web interfaces.
+
+CONTEXT
+We are building the frontend prototype of an Online Campus Event Management System using plain HTML, CSS and JavaScript. Students view upcoming events and register for an event. The page must work with no frameworks and no build tools.
+
+TASK
+Build a single-page Event Catalog and Registration Form.
+
+CONSTRAINTS
+- Use semantic HTML5 tags: header, main, section, article, footer. Do not use generic div wrappers for page structure.
+- Add proper label elements, aria-label attributes on inputs, accessible color contrast (WCAG AA), and alt text on images.
+- Add a visible keyboard focus style and a skip-to-content link.
+- Validate that the email ends with @univ.edu.ph.
+- Do not use any frontend framework or external libraries.
+
+### Output
+
+The AI returned one combined HTML file. The team reviewed it, corrected the flaws listed in the Verification Log, and split it into `index.html`, `styles.css` and `app.js`.
+
+### Accessibility (POUR) Features
+
+- Semantic tags: `header`, `main`, `section`, `article`, `footer`
+- Every input has a `label` linked by `for` and an `aria-label`
+- Error messages use `role="alert"` and inputs set `aria-invalid`
+- Text and background colors meet WCAG AA contrast
+- Logo image has `alt` text
+- Skip-to-content link and a visible keyboard focus outline
+- Events list and form work with keyboard only
+
 ## Task 3
 
 ### Prompt Used
@@ -188,40 +222,6 @@ erDiagram
 ### SQL Script
 
 See `/database/schema.sql`.
-
-## Task 2
-
-### Prompt Used
-
-ROLE
-You are a Senior Frontend Engineer who builds accessible web interfaces.
-
-CONTEXT
-We are building the frontend prototype of an Online Campus Event Management System using plain HTML, CSS and JavaScript. Students view upcoming events and register for an event. The page must work with no frameworks and no build tools.
-
-TASK
-Build a single-page Event Catalog and Registration Form.
-
-CONSTRAINTS
-- Use semantic HTML5 tags: header, main, section, article, footer. Do not use generic div wrappers for page structure.
-- Add proper label elements, aria-label attributes on inputs, accessible color contrast (WCAG AA), and alt text on images.
-- Add a visible keyboard focus style and a skip-to-content link.
-- Validate that the email ends with @univ.edu.ph.
-- Do not use any frontend framework or external libraries.
-
-### Output
-
-The AI returned one combined HTML file. The team reviewed it, corrected the flaws listed in the Verification Log, and split it into `index.html`, `styles.css` and `app.js`.
-
-### Accessibility (POUR) Features
-
-- Semantic tags: `header`, `main`, `section`, `article`, `footer`
-- Every input has a `label` linked by `for` and an `aria-label`
-- Error messages use `role="alert"` and inputs set `aria-invalid`
-- Text and background colors meet WCAG AA contrast
-- Logo image has `alt` text
-- Skip-to-content link and a visible keyboard focus outline
-- Events list and form work with keyboard only
 
 ## Task 4
 
